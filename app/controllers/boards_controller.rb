@@ -6,4 +6,10 @@ class BoardsController < ApplicationController
     def index
 
     end
+
+    def new 
+        # Boardモデルのオブジェクトを作成して@boardというインスタンス変数に代入
+        # インスタンス変数はビューでも参照できる
+        @board = Board.new
+    end
 end
