@@ -11,6 +11,7 @@ services:
       - db
     tty: true
     stdin_open: true
+  # コンテナのサービス名
   db:
     image: mysql:5.7
     volumes:
@@ -19,4 +20,3 @@ services:
       MYSQL_ROOT_PASSWORD: password
 volumes:
   db-volume:
-

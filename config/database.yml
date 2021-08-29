@@ -14,7 +14,9 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:password
+  # MYSQL_ROOT_PASSWORD環境変数のpassword
+  password: password
+  # hostは、MySQLサーバのコンテナのサービス名
   host: db
 
 development:
