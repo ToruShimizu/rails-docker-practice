@@ -11,5 +11,6 @@ class BoardsController < ApplicationController
         # Boardモデルのオブジェクトを作成して@boardというインスタンス変数に代入
         # インスタンス変数はビューでも参照できる
         @board = Board.new
+        binding.pry
     end
 end
