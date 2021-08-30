@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   # rootに定義したメソッドのことをアクションという
   # BoardsControllerのindexアクションとも呼ばれる
   def index
-    ＠boards = Board.all
+    @boards = Board.all
   end
 
   def new
@@ -15,14 +15,13 @@ class BoardsController < ApplicationController
 
   def create
     Board.create(board_params)
-    binding.pry
   end
 
   private
 
   # paramsメソッドの中のboardキーの中のname title bodyのキーを取得できる
   def board_params
-    # model名のキーとモデルのプロパティのキー
+  # model名のキーとモデルのプロパティのキー
     params.require(:board).permit(:name, :title, :body)
   end
 end
