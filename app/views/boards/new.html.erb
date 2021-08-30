@@ -4,16 +4,9 @@
     <a href="/boards" class="btn btn-outline-dark">掲示板一覧</a>
   </div>
 </div>
-<!-- form_forヘルパー -->
-<!-- 第一引数にはインスタンス変数 -->
-<!-- fはフォームビルダーオブジェクトのブロック引数でフォームを作成するのに必要 -->
 <%= form_for @board do |f| %>
   <div class="form-group">
-    <!-- formビルダーのメソッドで出力 -->
-    <!-- モデルのプロパティ名と出力する値 -->
-
     <%= f.label :name, '名前' %>
-      <!-- モデルのプロパティとクラス属性 -->
       <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="form-group">
@@ -24,5 +17,5 @@
     <%= f.label :body, '本文' %>
       <%= f.text_area :body, class: 'form-control' , rows: 10 %>
   </div>
-  <% f.submit '保存' , class: 'btn btn-primary' %>
+  <%= f.submit '保存' , class: 'btn btn-primary' %>
     <% end %>
