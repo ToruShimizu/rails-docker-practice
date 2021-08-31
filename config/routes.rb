@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get 'boards', to: 'boards#index'
   # GETメソッドで/boards/newにリクエストが来た場合、BoardsControllerのnewアクションが呼ばれるように定義
   get 'boards/new', to: 'boards#new'
-  post 'boards/', to: 'boards#create'
+  post 'boards', to: 'boards#create'
   get 'boards/:id', to: 'boards#show'
 end
