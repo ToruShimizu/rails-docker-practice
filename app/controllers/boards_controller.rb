@@ -17,6 +17,10 @@ class BoardsController < ApplicationController
     Board.create(board_params)
   end
 
+  def show
+    @board = Board.find(params[:id])
+  end
+
   private
 
   # paramsメソッドの中のboardキーの中のname title bodyのキーを取得できる
