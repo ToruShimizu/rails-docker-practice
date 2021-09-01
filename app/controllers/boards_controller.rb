@@ -3,6 +3,9 @@ class BoardsController < ApplicationController
   # indexメソッド
   # rootに定義したメソッドのことをアクションという
   # BoardsControllerのindexアクションとも呼ばれる
+  # ビューで使う
+  # @boardはインスタンス変数
+  # boardはローカル変数
   def index
     @boards = Board.all
   end
@@ -19,6 +22,17 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+  end
+
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    board = Board.find(params[:id])
+    board.update(board_params)
+
+    redirect_to board
   end
 
   private
