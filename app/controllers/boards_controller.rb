@@ -21,6 +21,8 @@ class BoardsController < ApplicationController
 
   def create
     board = Board.create(board_params)
+    # flashの任意のキーに値を設定しておくことで、次に値が参照されるまで保存される
+    flash[:notice] = "「#{board.title}」の掲示板を作成しました。"
     # 正常に作成されると作成されたオブジェクトが返ってくる
     # 対応するidのページに遷移
     redirect_to board
@@ -40,8 +42,8 @@ class BoardsController < ApplicationController
 
   def destroy
     @board.delete
+    redirect_to boards_path, flash: { notice: "「#{@board.title}」の掲示板が削除されました。"}
 
-    redirect_to boards_path
   end
 
   private

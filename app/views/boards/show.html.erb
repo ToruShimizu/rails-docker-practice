@@ -5,6 +5,11 @@
       <%= link_to '編集' , edit_board_path(@board), class: 'btn btn-outline-dark' %>
   </div>
 </div>
-<!-- <%= render partial: 'board' , object: @board %> -->
-<!-- 簡略化 -->
-<%= render @board %>
+<% if flash[:notice] %>
+  <div class="alert alert-primary">
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
+    <!-- <%= render partial: 'board' , object: @board %> -->
+    <!-- 簡略化 -->
+    <%= render @board %>
