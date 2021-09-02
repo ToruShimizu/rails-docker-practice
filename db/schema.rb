@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_829_133_132) do
-  create_table 'boards', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.string   'name'
-    t.string   'title'
-    t.text     'body', limit: 65_535
-    t.datetime 'created_at',               null: false
-    t.datetime 'updated_at',               null: false
+ActiveRecord::Schema.define(version: 20210829133132) do
+
+  create_table "boards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "body",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
+
 end
