@@ -20,12 +20,18 @@ class BoardsController < ApplicationController
   end
 
   def create
-    board = Board.create(board_params)
-    # flashの任意のキーに値を設定しておくことで、次に値が参照されるまで保存される
-    flash[:notice] = "「#{board.title}」の掲示板を作成しました。"
+    # boardのインスタンス引数のパラメータで初期化する
+    board = Board.new(board_params)
+    if board.save
+      # flashの任意のキーに値を設定しておくことで、次に値が参照されるまで保存される
+    flash[:notice] = `「#{board.title}」の掲示板を作成しました`
     # 正常に作成されると作成されたオブジェクトが返ってくる
     # 対応するidのページに遷移
     redirect_to board
+    else
+      # full_messagesでエラー箇所がわかる
+      redirect_to new_board_path, flash: {board: board, error_messages: board.errors.full_messages}
+    end
   end
 
   def show

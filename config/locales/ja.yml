@@ -20,6 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ja:
+  activerecord:
+    attributes:
+      board:
+        name: 名前
+        title: タイトル
+        body: 本文
   views:
     pagination:
       first: '最初'
