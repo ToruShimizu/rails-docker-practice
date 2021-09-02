@@ -1,5 +1,8 @@
 #  コントローラーを定義する際は基本的にApplicationControllerクラスを継承する
 class BoardsController < ApplicationController
+  # 呼び出し前に実行される。引数に実行したいメソッドを引数に書く
+  # %記号でシンボルの配列を定義
+  before_action :set_target_board, only: %i[show edit update destroy]
   # indexメソッド
   # rootに定義したメソッドのことをアクションという
   # BoardsControllerのindexアクションとも呼ばれる
@@ -24,25 +27,21 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
   end
 
   def edit
-    @board = Board.find(params[:id])
   end
 
   def update
-    board = Board.find(params[:id])
-    board.update(board_params)
+    @board.update(board_params)
 
-    redirect_to board
+    redirect_to @board
   end
 
   def destroy
-    board = Board.find(params[:id])
-    board.delete
+    @board.delete
 
-    redirect_to board
+    redirect_to boards_path
   end
 
   private
@@ -51,5 +50,9 @@ class BoardsController < ApplicationController
   def board_params
   # model名のキーとモデルのプロパティのキー
     params.require(:board).permit(:name, :title, :body)
+  end
+
+  def set_target_board
+    @board = Board.find(params[:id])
   end
 end
