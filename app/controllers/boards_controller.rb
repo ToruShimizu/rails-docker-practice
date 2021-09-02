@@ -17,7 +17,10 @@ class BoardsController < ApplicationController
   end
 
   def create
-    Board.create(board_params)
+    board = Board.create(board_params)
+    # 正常に作成されると作成されたオブジェクトが返ってくる
+    # 対応するidのページに遷移
+    redirect_to board
   end
 
   def show
@@ -31,6 +34,13 @@ class BoardsController < ApplicationController
   def update
     board = Board.find(params[:id])
     board.update(board_params)
+
+    redirect_to board
+  end
+
+  def destroy
+    board = Board.find(params[:id])
+    board.delete
 
     redirect_to board
   end
