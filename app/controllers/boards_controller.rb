@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
   # @boardはインスタンス変数
   # boardはローカル変数
   def index
-    @boards = Board.all
+    @boards = Board.page(params[:page])
   end
 
   def new
