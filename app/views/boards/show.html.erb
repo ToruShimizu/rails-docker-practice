@@ -13,4 +13,12 @@
     <!-- <%= render partial: 'board' , object: @board %> -->
     <!-- 簡略化 -->
     <%= render @board %>
-      <%= render partial: 'comment_form' , local: {comment: @comment } %>
+
+      <div class="p-comment__list">
+        <div class="p-comment_listTitle">
+          コメント
+        </div>
+        特定のモデルのリストをrenderの引数に渡した場合、自動的にモデル名のビューが使用される
+        <%= render @board.comments %>
+      </div>
+      <%= render partial: 'comment_form' , locals: { comment: @comment } %>
