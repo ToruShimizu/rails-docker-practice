@@ -46,6 +46,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails-flog', require: 'flog'
   gem 'rails-erd'
+  gem 'annotate', '>=2.7.2'
 end
 
 gem 'bootstrap', '~> 4.0.0'
