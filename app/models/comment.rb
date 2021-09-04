@@ -19,6 +19,7 @@
 #
 class Comment < ApplicationRecord
   # ボードに紐づく
+  has_one :board
   belongs_to :board
 
   validates :name, presence: true, length: { maximum: 10 }
