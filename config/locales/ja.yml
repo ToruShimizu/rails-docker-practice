@@ -22,6 +22,10 @@
 ja:
   activerecord:
     attributes:
+      user:
+        name: ユーザー名
+        password: パスワード
+        password:_confirmation: パスワード（確認）
       board:
         name: 名前
         title: タイトル
